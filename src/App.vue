@@ -1,20 +1,13 @@
 <template>
-  <ul>
-    <!-- * v-bind="resources" passed in props to the component,this equivalent to :title="resources.title" :description="resources.description" :link="resources.link" -->
-    <learning-resources
-      v-for="resources in storedResources"
-      :key="resources.id"
-      v-bind="resources"
-    ></learning-resources>
-  </ul>
+  <stored-resources v-bind:importedResources="storedResources"></stored-resources>
 </template>
 
 <script>
-import LearningResources from './components/learning-resources/LearningResource.vue';
+import StoredResources from './components/learning-resources/StoredResources.vue';
 
 export default {
   components: {
-    'learning-resources': LearningResources,
+    'stored-resources' : StoredResources
   },
   data() {
     return {
@@ -36,3 +29,19 @@ export default {
   },
 };
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+</style>
